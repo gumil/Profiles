@@ -1,0 +1,63 @@
+query GetProfile {
+  user(login: "gumil") {
+    avatarUrl
+    bio
+    followers {
+      totalCount
+    }
+    following {
+      totalCount
+    }
+    email
+    company
+    name
+    login
+    pinnedItems(first: 3) {
+      edges {
+        node {
+          ... on Repository {
+            id
+            name
+            description
+            stargazerCount
+            languages(first: 1) {
+              nodes {
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+    repositories(first: 5, orderBy: {field: STARGAZERS, direction: DESC}) {
+      edges {
+        node {
+          id
+          name
+          description
+          stargazerCount
+          languages(first: 1) {
+            nodes {
+              name
+            }
+          }
+        }
+      }
+    }
+    starredRepositories(first: 5, orderBy: {field: STARRED_AT, direction: DESC}) {
+      edges {
+        node {
+          id
+          name
+          description
+          stargazerCount
+          languages(first: 1) {
+            nodes {
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+}
