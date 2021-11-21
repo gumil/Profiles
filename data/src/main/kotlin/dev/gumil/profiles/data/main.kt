@@ -13,12 +13,12 @@ private val apolloClient = ApolloClient.builder()
     .serverUrl("https://api.github.com/graphql")
     .okHttpClient(
         OkHttpClient.Builder()
-        .addInterceptor(AuthorizationInterceptor())
-        .build()
+            .addInterceptor(AuthorizationInterceptor())
+            .build()
     )
     .build()
 
-private class AuthorizationInterceptor: Interceptor {
+private class AuthorizationInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request().newBuilder()
             .addHeader("Authorization", "Bearer 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")

@@ -1,8 +1,11 @@
 plugins {
     id 'java-library'
     id 'kotlin'
+    id "io.gitlab.arturbosch.detekt"
     id "com.apollographql.apollo" version "2.5.11"
 }
+
+apply from: "$rootDir/gradle/detekt.gradle"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8

@@ -1,0 +1,7 @@
+detekt {
+    config = files("$rootDir/config/detekt/detekt.yml")
+}
+
+dependencies {
+    detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:1.19.0-RC1"
+}
