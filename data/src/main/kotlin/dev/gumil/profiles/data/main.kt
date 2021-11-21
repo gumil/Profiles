@@ -9,19 +9,23 @@ import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
 
+private const val TOKEN = ""
+
 private val apolloClient = ApolloClient.builder()
     .serverUrl("https://api.github.com/graphql")
     .okHttpClient(
         OkHttpClient.Builder()
-            .addInterceptor(AuthorizationInterceptor())
+            .addInterceptor(AuthorizationInterceptor(TOKEN))
             .build()
     )
     .build()
 
-private class AuthorizationInterceptor : Interceptor {
+private class AuthorizationInterceptor(
+    private val token: String
+) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request().newBuilder()
-            .addHeader("Authorization", "Bearer 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")
+            .addHeader("Authorization", "Bearer $token")
             .build()
 
         return chain.proceed(request)
