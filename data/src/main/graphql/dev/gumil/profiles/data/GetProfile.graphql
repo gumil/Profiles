@@ -1,5 +1,5 @@
-query GetProfile {
-  user(login: "gumil") {
+query GetProfile($login: String!) {
+  user(login: $login) {
     avatarUrl
     bio
     followers {
