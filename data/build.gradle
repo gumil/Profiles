@@ -21,4 +21,8 @@ dependencies {
     implementation "com.apollographql.apollo:apollo-coroutines-support:_"
     implementation "com.apollographql.apollo:apollo-http-cache:_"
     implementation Square.okHttp3
+    implementation Square.okHttp3.loggingInterceptor
+
+    testImplementation Testing.junit4
+    testImplementation Square.okHttp3.mockWebServer
 }

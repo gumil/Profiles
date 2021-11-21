@@ -1,0 +1,83 @@
+{
+  "data": {
+    "user": {
+      "__typename": "User",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/aang",
+      "bio": "Android. Kotlin.",
+      "followers": {
+        "__typename": "FollowerConnection",
+        "totalCount": 30
+      },
+      "following": {
+        "__typename": "FollowingConnection",
+        "totalCount": 65
+      },
+      "email": "miguelrpanelo@gmail.com",
+      "name": "Miguel Panelo",
+      "login": "gumil",
+      "pinnedItems": {
+        "__typename": "PinnableItemConnection",
+        "edges": [
+          {
+            "__typename": "PinnableItemEdge",
+            "node": {
+              "__typename": "Repository",
+              "id": "MDEwOlJlcG9zaXRvcnkxMjAxNTM2Njk=",
+              "name": "Kaskade",
+              "description": "Simplifying state management",
+              "stargazerCount": 227,
+              "primaryLanguage": {
+                "__typename": "Language",
+                "color": "#A97BFF",
+                "id": "MDg6TGFuZ3VhZ2UyNzI=",
+                "name": "Kotlin"
+              }
+            }
+          }
+        ]
+      },
+      "topRepositories": {
+        "__typename": "RepositoryConnection",
+        "edges": [
+          {
+            "__typename": "RepositoryEdge",
+            "node": {
+              "__typename": "Repository",
+              "id": "MDEwOlJlcG9zaXRvcnkxMjAxNTM2Njk=",
+              "name": "Kaskade",
+              "description": "Simplifying state management",
+              "stargazerCount": 227,
+              "primaryLanguage": {
+                "__typename": "Language",
+                "color": "#A97BFF",
+                "id": "MDg6TGFuZ3VhZ2UyNzI=",
+                "name": "Kotlin"
+              }
+            }
+          }
+        ]
+      },
+      "starredRepositories": {
+        "__typename": "StarredRepositoryConnection",
+        "edges": [
+          {
+            "__typename": "StarredRepositoryEdge",
+            "node": {
+              "__typename": "Repository",
+              "id": "MDEwOlJlcG9zaXRvcnkxMjAxNTM2Njk=",
+              "name": "Kaskade",
+              "description": "Simplifying state management",
+              "stargazerCount": 227,
+              "primaryLanguage": {
+                "__typename": "Language",
+                "color": "#A97BFF",
+                "id": "MDg6TGFuZ3VhZ2UyNzI=",
+                "name": "Kotlin"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
