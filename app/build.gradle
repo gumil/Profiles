@@ -55,15 +55,23 @@ android {
 }
 
 dependencies {
-    implementation AndroidX.appCompat
+    implementation project(path: ':data')
+
     implementation Google.android.material
+
+    implementation AndroidX.appCompat
     implementation AndroidX.compose.ui
     implementation AndroidX.compose.material
     implementation AndroidX.compose.ui.toolingPreview
     implementation AndroidX.activity.compose
+
+    implementation(COIL.compose)
+
     testImplementation Testing.junit4
+
     androidTestImplementation AndroidX.test.ext.junit
     androidTestImplementation AndroidX.test.espresso.core
     androidTestImplementation AndroidX.compose.ui.testJunit4
+
     debugImplementation AndroidX.compose.ui.tooling
 }
