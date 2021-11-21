@@ -2,7 +2,7 @@ plugins {
     id 'java-library'
     id 'kotlin'
     id "io.gitlab.arturbosch.detekt"
-    id "com.apollographql.apollo" version "2.5.11"
+    id "com.apollographql.apollo"
 }
 
 apply from: "$rootDir/gradle/detekt.gradle"
@@ -17,9 +17,7 @@ apollo {
 }
 
 dependencies {
-    def okhttp = '4.9.2'
-    def apollo = '2.5.11'
-    implementation "com.apollographql.apollo:apollo-runtime:$apollo"
-    implementation "com.apollographql.apollo:apollo-coroutines-support:$apollo"
-    implementation "com.squareup.okhttp3:okhttp:$okhttp"
+    implementation "com.apollographql.apollo:apollo-runtime:_"
+    implementation "com.apollographql.apollo:apollo-coroutines-support:_"
+    implementation Square.okHttp3
 }
