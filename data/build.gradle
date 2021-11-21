@@ -19,5 +19,6 @@ apollo {
 dependencies {
     implementation "com.apollographql.apollo:apollo-runtime:_"
     implementation "com.apollographql.apollo:apollo-coroutines-support:_"
+    implementation "com.apollographql.apollo:apollo-http-cache:_"
     implementation Square.okHttp3
 }
