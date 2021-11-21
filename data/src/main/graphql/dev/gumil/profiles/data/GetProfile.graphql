@@ -9,7 +9,6 @@ query GetProfile($login: String!) {
       totalCount
     }
     email
-    company
     name
     login
     pinnedItems(first: 3) {
@@ -20,41 +19,41 @@ query GetProfile($login: String!) {
             name
             description
             stargazerCount
-            languages(first: 1) {
-              nodes {
-                name
-              }
-            }
-          }
-        }
-      }
-    }
-    repositories(first: 5, orderBy: {field: STARGAZERS, direction: DESC}) {
-      edges {
-        node {
-          id
-          name
-          description
-          stargazerCount
-          languages(first: 1) {
-            nodes {
+            primaryLanguage {
+              color
+              id
               name
             }
           }
         }
       }
     }
-    starredRepositories(first: 5, orderBy: {field: STARRED_AT, direction: DESC}) {
+    topRepositories(first: 10, orderBy: {field: CREATED_AT, direction: DESC}) {
       edges {
         node {
           id
           name
           description
           stargazerCount
-          languages(first: 1) {
-            nodes {
-              name
-            }
+          primaryLanguage {
+            color
+            id
+            name
+          }
+        }
+      }
+    }
+    starredRepositories(first: 10, orderBy: {field: STARRED_AT, direction: DESC}) {
+      edges {
+        node {
+          id
+          name
+          description
+          stargazerCount
+          primaryLanguage {
+            color
+            id
+            name
           }
         }
       }
