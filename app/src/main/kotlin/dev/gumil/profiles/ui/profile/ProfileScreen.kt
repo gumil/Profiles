@@ -28,6 +28,7 @@ import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import dev.gumil.profiles.MainViewModel
 import dev.gumil.profiles.data.GithubUser
+import dev.gumil.profiles.ui.EmptyScreen
 import dev.gumil.profiles.ui.githubUser
 import dev.gumil.profiles.ui.theme.ProfilesTheme
 import kotlinx.coroutines.flow.Flow
@@ -39,6 +40,12 @@ fun ProfileScreen(
 ) {
     val state = userFlow.collectAsState(initial = MainViewModel.UiState())
     val refreshState = rememberSwipeRefreshState(state.value.isRefreshing)
+
+    if (state.value.hasError) {
+        EmptyScreen()
+        return
+    }
+
     SwipeRefresh(
         state = refreshState,
         onRefresh = onRefresh,

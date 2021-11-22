@@ -9,7 +9,6 @@ import dev.gumil.profiles.util.DispatcherProvider
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.filterNotNull
-import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -32,15 +31,21 @@ class MainViewModel @Inject constructor(
     fun refresh() {
         viewModelScope.launch {
             mutableFlow.value = mutableFlow.value.copy(isRefreshing = true)
-            val user = withContext(dispatcherProvider.io) {
-                repository.getProfile("gumil")
+            runCatching {
+                withContext(dispatcherProvider.io) {
+                    repository.getProfile("gumil")
+                }
+            }.onSuccess { user ->
+                mutableFlow.value = UiState(user, false)
+            }.onFailure {
+                mutableFlow.value = UiState(hasError = true)
             }
-            mutableFlow.value = UiState(user, false)
         }
     }
 
     data class UiState(
         val user: GithubUser? = null,
-        val isRefreshing: Boolean = true
+        val isRefreshing: Boolean = true,
+        val hasError: Boolean = false
     )
 }
