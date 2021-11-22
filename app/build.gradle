@@ -77,6 +77,7 @@ dependencies {
     implementation AndroidX.activity.compose
 
     implementation(COIL.compose)
+    implementation Google.accompanist.swiperefresh
 
     testImplementation Testing.junit4
     testImplementation 'org.mockito.kotlin:mockito-kotlin:_'
