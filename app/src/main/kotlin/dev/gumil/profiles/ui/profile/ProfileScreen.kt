@@ -32,7 +32,7 @@ import kotlinx.coroutines.flow.Flow
 fun ProfileScreen(userFlow: Flow<GithubUser>) {
     val state = userFlow.collectAsState(initial = null)
 
-    state.value?.let {  user ->
+    state.value?.let { user ->
         ProfileScreen(user = user)
     }
 }

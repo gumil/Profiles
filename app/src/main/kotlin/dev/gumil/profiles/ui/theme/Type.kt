@@ -32,5 +32,11 @@ val Typography = Typography(
         fontWeight = FontWeight.Bold,
         fontSize = 32.sp,
         letterSpacing = 2.4.sp
+    ),
+    h6 = TextStyle(
+        fontFamily = SourceSansPro,
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp,
+        letterSpacing = 1.33.sp
     )
 )
