@@ -26,7 +26,8 @@ compileKotlin {
 }
 
 dependencies {
-    implementation "com.apollographql.apollo:apollo-runtime:_"
+    // Exposing this to be able to expose ApolloClient to the app module
+    api "com.apollographql.apollo:apollo-runtime:_"
     implementation "com.apollographql.apollo:apollo-coroutines-support:_"
     implementation "com.apollographql.apollo:apollo-http-cache:_"
     implementation Square.okHttp3

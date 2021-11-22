@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
     id "io.gitlab.arturbosch.detekt"
 }
 
@@ -62,6 +64,9 @@ android {
 
 dependencies {
     implementation project(path: ':data')
+
+    implementation Google.dagger.hilt.android
+    kapt Google.dagger.hilt.compiler
 
     implementation Google.android.material
 
