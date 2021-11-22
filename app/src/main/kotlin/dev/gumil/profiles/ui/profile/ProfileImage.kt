@@ -1,4 +1,4 @@
-package dev.gumil.profiles.ui
+package dev.gumil.profiles.ui.profile
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.size
@@ -10,6 +10,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
 import dev.gumil.profiles.data.GithubUser
+import dev.gumil.profiles.ui.githubUser
 
 @Composable
 fun ProfileImage(
@@ -27,7 +28,7 @@ fun ProfileImage(
 
 @Preview
 @Composable
-fun ProfileImageBigPreview() {
+private fun ProfileImageBigPreview() {
     ProfileImage(
         user = githubUser(),
         modifier = Modifier
@@ -37,7 +38,7 @@ fun ProfileImageBigPreview() {
 
 @Preview
 @Composable
-fun ProfileImageSmallPreview() {
+private fun ProfileImageSmallPreview() {
     ProfileImage(
         user = githubUser(),
         modifier = Modifier

@@ -1,4 +1,4 @@
-package dev.gumil.profiles.ui
+package dev.gumil.profiles.ui.profile
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -30,6 +30,8 @@ import androidx.compose.ui.unit.dp
 import dev.gumil.profiles.R
 import dev.gumil.profiles.data.GithubRepository
 import dev.gumil.profiles.data.GithubUser
+import dev.gumil.profiles.ui.githubRepository
+import dev.gumil.profiles.ui.githubUser
 import dev.gumil.profiles.ui.theme.ProfilesTheme
 
 private const val BORDER_COLOR = 0xFFCCCCCC
@@ -134,7 +136,7 @@ private fun TextWithLeftContent(
 
 @Preview
 @Composable
-fun RepositoryItemFullWidthPreview() {
+private fun RepositoryItemFullWidthPreview() {
     ProfilesTheme {
         Surface(color = MaterialTheme.colors.background) {
             RepositoryItem(
@@ -148,7 +150,7 @@ fun RepositoryItemFullWidthPreview() {
 
 @Preview
 @Composable
-fun RepositoryItemSmallPreview() {
+private fun RepositoryItemSmallPreview() {
     ProfilesTheme {
         Surface(color = MaterialTheme.colors.background) {
             RepositoryItem(
