@@ -16,6 +16,15 @@ apollo {
     generateKotlinModels.set(true)
 }
 
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = '1.8'
+        freeCompilerArgs = [
+            '-Xopt-in=kotlin.RequiresOptIn'
+        ]
+    }
+}
+
 dependencies {
     implementation "com.apollographql.apollo:apollo-runtime:_"
     implementation "com.apollographql.apollo:apollo-coroutines-support:_"

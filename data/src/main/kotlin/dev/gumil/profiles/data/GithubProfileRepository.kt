@@ -1,5 +1,7 @@
 package dev.gumil.profiles.data
 
+import kotlinx.coroutines.flow.Flow
+
 interface GithubProfileRepository {
-    suspend fun getProfile(user: String): GithubUser?
+    fun getProfile(user: String): Flow<GithubUser>
 }
