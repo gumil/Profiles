@@ -9,13 +9,15 @@ fun githubUser() = GithubUser(
     bio = null,
     followers = 1,
     following = 1,
-    email = "",
-    name = null,
+    email = "gumil.dev@gmail.com",
+    name = "Miguel Panelo",
     login = "gumil",
-    pinnedRepositories = emptyList(),
-    topRepositories = emptyList(),
-    starredRepositories = emptyList()
+    pinnedRepositories = githubRepositories(),
+    topRepositories = githubRepositories(),
+    starredRepositories = githubRepositories()
 )
+
+fun githubRepositories() = (0..2).map { githubRepository() }
 
 fun githubRepository() = GithubRepository(
     name = "Github Profiles",
