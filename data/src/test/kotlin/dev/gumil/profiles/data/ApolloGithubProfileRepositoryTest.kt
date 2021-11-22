@@ -6,13 +6,14 @@ import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import java.io.File
 import kotlin.random.Random
 
 class ApolloGithubProfileRepositoryTest {
 
     private val mockServer = MockWebServer()
     private val client = apolloClient(
-        cacheDir = "",
+        cacheDir = File(""),
         token = "",
         serverUrl = mockServer.url("/").toString()
     )

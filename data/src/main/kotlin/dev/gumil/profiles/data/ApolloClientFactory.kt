@@ -11,7 +11,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import java.io.File
 
 fun apolloClient(
-    cacheDir: String,
+    cacheDir: File,
     token: String,
     serverUrl: String = "https://api.github.com/graphql",
 ): ApolloClient =
@@ -31,11 +31,10 @@ fun apolloClient(
         .build()
 
 @Suppress("MagicNumber")
-private fun cacheStore(cacheDir: String): HttpCacheStore {
-    val file = File(cacheDir, "apolloCache")
+private fun cacheStore(cacheDir: File): HttpCacheStore {
     // 10 MB cache
     val size: Long = 10 * 1024 * 1024
-    return DiskLruHttpCacheStore(file, size)
+    return DiskLruHttpCacheStore(cacheDir, size)
 }
 
 private class AuthorizationInterceptor(
