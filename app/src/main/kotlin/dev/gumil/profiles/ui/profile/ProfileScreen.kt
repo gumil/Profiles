@@ -3,6 +3,7 @@ package dev.gumil.profiles.ui.profile
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -23,28 +24,40 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
+import dev.gumil.profiles.MainViewModel
 import dev.gumil.profiles.data.GithubUser
 import dev.gumil.profiles.ui.githubUser
 import dev.gumil.profiles.ui.theme.ProfilesTheme
 import kotlinx.coroutines.flow.Flow
 
 @Composable
-fun ProfileScreen(userFlow: Flow<GithubUser>) {
-    val state = userFlow.collectAsState(initial = null)
-
-    state.value?.let { user ->
-        ProfileScreen(user = user)
+fun ProfileScreen(
+    userFlow: Flow<MainViewModel.UiState>,
+    onRefresh: () -> Unit
+) {
+    val state = userFlow.collectAsState(initial = MainViewModel.UiState())
+    val refreshState = rememberSwipeRefreshState(state.value.isRefreshing)
+    SwipeRefresh(
+        state = refreshState,
+        onRefresh = onRefresh,
+        modifier = Modifier.fillMaxSize()
+    ) {
+        state.value.user?.let { user ->
+            ProfileScreen(user = user)
+        }
     }
 }
 
 @Composable
-fun ProfileScreen(user: GithubUser) {
+private fun ProfileScreen(user: GithubUser) {
     val scrollState = rememberScrollState()
     Column(
         Modifier
             .fillMaxWidth()
-            .padding(top = 24.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
             .verticalScroll(scrollState)
+            .padding(top = 24.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
     ) {
         RepositoryUser(user)
         Spacer(modifier = Modifier.height(24.dp))

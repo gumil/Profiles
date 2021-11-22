@@ -31,7 +31,9 @@ class MainActivity : ComponentActivity() {
                 Surface(color = MaterialTheme.colors.background) {
                     Column {
                         ProfileAppbar()
-                        ProfileScreen(userFlow = viewModel.getProfile("gumil"))
+                        ProfileScreen(userFlow = viewModel.userFlow) {
+                            viewModel.refresh()
+                        }
                     }
                 }
             }

@@ -1,6 +1,5 @@
 package dev.gumil.profiles.data
 
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
@@ -48,9 +47,9 @@ class ApolloGithubProfileRepositoryTest {
 
         )
 
-        repository.getProfile(user).collect { actual ->
-            assertEquals(expected, actual)
-        }
+        val actual = repository.getProfile(user)
+
+        assertEquals(expected, actual)
     }
 
     @After

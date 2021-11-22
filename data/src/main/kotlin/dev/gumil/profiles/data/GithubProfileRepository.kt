@@ -1,10 +1,9 @@
 package dev.gumil.profiles.data
 
 import com.apollographql.apollo.ApolloClient
-import kotlinx.coroutines.flow.Flow
 
 interface GithubProfileRepository {
-    fun getProfile(user: String): Flow<GithubUser>
+    suspend fun getProfile(user: String): GithubUser?
 }
 
 fun GithubProfileRepository(apolloClient: ApolloClient): GithubProfileRepository {
