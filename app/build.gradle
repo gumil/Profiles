@@ -87,4 +87,5 @@ dependencies {
     androidTestImplementation AndroidX.compose.ui.testJunit4
 
     debugImplementation AndroidX.compose.ui.tooling
+    debugImplementation Square.leakCanary.android
 }
