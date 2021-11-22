@@ -14,6 +14,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.SpanStyle
@@ -25,6 +26,16 @@ import androidx.compose.ui.unit.dp
 import dev.gumil.profiles.data.GithubUser
 import dev.gumil.profiles.ui.githubUser
 import dev.gumil.profiles.ui.theme.ProfilesTheme
+import kotlinx.coroutines.flow.Flow
+
+@Composable
+fun ProfileScreen(userFlow: Flow<GithubUser>) {
+    val state = userFlow.collectAsState(initial = null)
+
+    state.value?.let {  user ->
+        ProfileScreen(user = user)
+    }
+}
 
 @Composable
 fun ProfileScreen(user: GithubUser) {
